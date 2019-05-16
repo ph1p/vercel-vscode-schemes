@@ -2,7 +2,7 @@
   "name": "zeit-co-vscode-schemas",
   "displayName": "zeit.co Schemas",
   "description": "zeit.co Schemas",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"keywords": ["zeit", "now", "now.sh", "zeit.co", "schemas"],
   "publisher": "ph1p",
   "engines": {
@@ -25,15 +25,15 @@
   },
   "icon": "images/icon.png",
   "galleryBanner": {
-    "color": "#C80000",
+    "color": "#ffffff",
     "theme": "dark"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ph1p/zeit-now-vscode/issues"
+    "url": "https://github.com/ph1p/zeit-co-vscode-schemas/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ph1p/zeit-now-vscode.git"
+    "url": "https://github.com/ph1p/zeit-co-vscode-schemas.git"
   }
 }
