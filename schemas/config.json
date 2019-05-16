@@ -1,0 +1,47 @@
+{
+  "title": "JSON schema for config.json configuration files",
+  "type": "object",
+  "properties": {
+    "updateChannel": {
+      "type": "string",
+      "description": "This option tells Now Desktop which channel it should look for updates on for both Now Desktop and, if `desktop.updateCLI` is enabled, Now CLI.\n\nBy default, the update channel is `stable` but by using `canary` you will get access to the latest pre-released features to test before they are officially released."
+    },
+    "currentTeam": {
+      "type": "string",
+      "description": "This option tells both Now CLI and Now Desktop which context is currently active. If this property exists and contains a team ID, that team is used as the scope for deployments, otherwise if this property does not exist, the user's personal account is used."
+    },
+    "api": {
+      "type": "string",
+      "description": "This option selects which API Origin both Now CLI and Now Desktop should use when performing an action requiring the API."
+    },
+    "desktop": {
+      "type": "object",
+      "description": "This is an object that contains configuration options relating only to Now Desktop.",
+      "properties": {
+        "shownTips": {
+          "type": "object",
+          "description": "This is an object that contains the configuration properties for which tips should be shown when using Now Desktop.",
+          "properties": {
+            "pasteFromClipboard": {
+              "description": "This option allows the display of the \"paste from clipboard\" tip which teaches how to deploy with Now Desktop using the clipboard.\n\nThis default value of this option is `false` (or the option will not exist) unless the tip has been closed within Now Desktop, in which case this option will hold the value `true`.",
+              "type": "boolean",
+              "defaul": false
+            }
+          }
+        },
+        "updateCLI": {
+          "description": "This option tells Now Desktop whether to keep Now CLI up-to-date while the app is open. If the value is `true`, Now Desktop will install updates for Now CLI based on the update channel.",
+          "type": "boolean",
+          "default": false
+        },
+        "teamOrder": {
+          "description": "A list of team slugs that the active user is part of, and the username or email of the active user.\n\nThis option defines the order that teams are shown in the footer of Now Desktop. The order of this array can change by dragging or dropping the avatars in Now Desktop or re-ordering this list.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
