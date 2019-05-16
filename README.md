@@ -1,4 +1,4 @@
-# Zeit now VSCode
+# Zeit now VSCode Schemas
 
 This extension currently supports the following schemas:
 

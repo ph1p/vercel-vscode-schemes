@@ -2,7 +2,7 @@
   "name": "zeit-co-vscode-schemas",
   "displayName": "zeit.co Schemas",
   "description": "zeit.co Schemas",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"keywords": ["zeit", "now", "now.sh", "zeit.co", "schemas"],
   "publisher": "ph1p",
   "engines": {
@@ -26,7 +26,7 @@
   "icon": "images/icon.png",
   "galleryBanner": {
     "color": "#ffffff",
-    "theme": "dark"
+    "theme": "light"
   },
   "license": "MIT",
   "bugs": {
