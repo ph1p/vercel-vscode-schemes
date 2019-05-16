@@ -153,6 +153,7 @@
       "description": "By setting and modifying this value, you can decide the deployment regions of the Lambdas that get created as a result of the build steps.\n\nThis value does not impact static files or edge caches, since deployments always have a CDN layer in front.\n\nThe special value all can be used to target all available regions.",
       "type": "array",
       "items": {
+        "description": "The special value all can be used to target all available regions.\n\nNOTE: The values in regions support targeting a region generically, by omitting the number. If `sfo` is specified, our backend will select a singular region (like `sfo1`) at deploy time.",
         "type": "string",
         "default": "all",
         "oneOf": [
