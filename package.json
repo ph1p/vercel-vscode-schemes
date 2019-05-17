@@ -2,8 +2,16 @@
   "name": "zeit-co-vscode-schemas",
   "displayName": "zeit.co Schemas",
   "description": "Add support for JSON Schemas from zeit.co files",
-	"version": "0.0.5",
-	"keywords": ["zeit", "now", "now.sh", "zeit.co", "schemas"],
+  "version": "0.0.6",
+  "keywords": [
+    "zeit",
+    "now",
+    "now.sh",
+    "zeit.co",
+    "schemas",
+    "nextjs",
+    "config"
+  ],
   "publisher": "ph1p",
   "engines": {
     "vscode": "^1.28.0"
@@ -11,6 +19,13 @@
   "categories": [
     "Other"
   ],
+  "main": "./out/index.js",
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc  -p ./",
+    "lint": "tslint -p ./",
+    "watch": "tsc -watch -p ./"
+  },
   "contributes": {
     "jsonValidation": [
       {
@@ -23,6 +38,9 @@
       }
     ]
   },
+  "activationEvents": [
+    "*"
+  ],
   "icon": "images/icon.png",
   "galleryBanner": {
     "color": "#ffffff",
@@ -35,5 +53,11 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/ph1p/zeit-co-vscode-schemas.git"
+  },
+  "devDependencies": {
+    "@types/node": "^12.0.2",
+    "@types/vscode": "^1.32.0",
+    "tslint": "^5.16.0",
+    "typescript": "^3.4.5"
   }
 }
