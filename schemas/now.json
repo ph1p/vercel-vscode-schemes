@@ -16,7 +16,8 @@
     },
     "alias": {
       "description": "domain names (optionally including subdomains) added to the account, or a string for a suffxed URL using `.now.sh` or a Custom Deployment Suffix.\n\nThe alias or aliases are applied automatically using Now for GitHub or Now for GitLab when merging or pushing to the default branch.\n\nYou can deploy to the defined aliases using Now CLI by setting the production deployment environment target.",
-      "type": "array",
+      "type": ["array", "string"],
+      "default": "name.now.sh",
       "items": {
         "type": "string"
       }

@@ -21,6 +21,8 @@
   ],
   "main": "./out/index.js",
   "scripts": {
+    "packages": "vsce package",
+    "publish": "vsce publish",
     "vscode:prepublish": "npm run compile",
     "compile": "tsc  -p ./",
     "lint": "tslint -p ./",
