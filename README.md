@@ -4,7 +4,6 @@ This extension currently supports the following schemas:
 
 * ~/.now/config.json
 * now.json
-* next.config.js (partial)
 
 
 ### Contribution
