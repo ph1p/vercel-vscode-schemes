@@ -2,7 +2,7 @@
   "name": "zeit-co-vscode-schemas",
   "displayName": "zeit.co Schemas",
   "description": "Add support for JSON Schemas from zeit.co files",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "keywords": [
     "zeit",
     "now",
@@ -14,7 +14,7 @@
   ],
   "publisher": "ph1p",
   "engines": {
-    "vscode": "^1.28.0"
+    "vscode": "^1.42.0"
   },
   "categories": [
     "Other"
