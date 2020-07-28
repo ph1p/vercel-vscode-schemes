@@ -1,9 +1,10 @@
-# Zeit VSCode Schemas
+# Vercel VSCode Schemas
 
 This extension currently supports the following schemas:
 
-* ~/.now/config.json
-* now.json
+* ~/.(vercel|now)/config.json
+* (vercel|now).json
+
 
 
 ### Contribution

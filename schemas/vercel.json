@@ -1,5 +1,5 @@
 {
-  "title": "JSON schema for now.json configuration files",
+  "title": "JSON schema for vercel.json configuration files",
   "type": "object",
   "properties": {
     "functions": {
@@ -42,25 +42,25 @@
       "type": "number",
       "default": 2,
       "enum": [1, 2],
-      "description": "Specifies the Now Platform version the deployment should use and is known to work with. We strongly recommend setting a `version` when working on production systems or using source control (e.g. Git)."
+      "description": "Specifies the Vercel Platform version the deployment should use and is known to work with. We strongly recommend setting a version when working on production systems or using source control (e.g. Git)."
     },
     "name": {
       "type": "string",
-      "default": "zeit-chat",
+      "default": "vercel-chat",
       "maxLength": 52,
       "description": "The prefix for all new deployment instances. The CLI usually generates this field automatically based on the name of the directory. But if you'd like to define it explicitly, this is the way to go."
     },
     "alias": {
-      "description": "domain names (optionally including subdomains) added to the account, or a string for a suffxed URL using `.now.sh` or a Custom Deployment Suffix.\n\nThe alias or aliases are applied automatically using Now for GitHub or Now for GitLab when merging or pushing to the default branch.\n\nYou can deploy to the defined aliases using Now CLI by setting the production deployment environment target.",
+      "description": "Valid values: domain names (optionally including subdomains) added to the account, or a string for a suffixed URL using .vercel.app or a Custom Deployment Suffix (available on the Enterprise plan).\n\nLimit: A maximum of 64 aliases in the array.\n\nThe alias or aliases are applied automatically using Vercel for GitHub, Vercel for GitLab, or Vercel for Bitbucket when merging or pushing to the Production Branch.\n\nYou can deploy to the defined aliases using Vercel CLI by setting the production deployment environment target.",
       "type": ["array", "string"],
-      "default": "name.now.sh",
+      "default": "name.vercel.app",
       "items": {
         "type": "string"
       }
     },
     "scope": {
       "type": "string",
-      "description": "This property determines the scope (user or team) under which the project will be deployed by Now CLI or Now Desktop.\n\nFor teams, either an ID or slug. For users, either a email address, username, or ID.\n\nFurthermore, it also affects any other actions that the user takes within the directory that contains this configuration (e.g. listing secrets using `now secrets ls`)."
+      "description": "Valid values: For teams, either an ID or slug. For users, either a email address, username, or ID.\n\nThis property determines the scope (user or team) under which the project will be deployed by Vercel CLI.\n\nFor teams, either an ID or slug. For users, either a email address, username, or ID.\n\nFurthermore, it also affects any other actions that the user takes within the directory that contains this configuration (e.g. listing Environment Variables using vercel secrets ls)."
     },
     "env": {
       "type": "object",
@@ -97,14 +97,14 @@
           },
           "status": {
             "type": "number",
-            "description": "The status property defines the status code that Now should respond with when a path is requested."
+            "description": "The status property defines the status code that Vercel should respond with when a path is requested."
           },
           "src": {
             "description": "String supporting PCRE Regex and Route Parameters like `/product/(?<id>[^/]+).`\n\nFor each route, `src` is required to set the path which the behavior will affect.",
             "type": "string"
           },
           "dest": {
-            "description": "`dest` is used to rewrite the `src` path to another path, such as another URL or Now hosted lambda.",
+            "description": "`dest` is used to rewrite the `src` path to another path, such as another URL or Vercel hosted lambda.",
             "type": "string"
           },
           "methods": {
@@ -156,6 +156,10 @@
           "destination": {
             "description": "A location destination defined as an absolute pathname or external URL.",
             "type": "string"
+          },
+          "permanent": {
+            "description": "A boolean to toggle between permanent and temporary redirect (default true). When true, the status code is 308. When false the status code is 307.",
+            "type": "boolean"
           }
         }
       }
@@ -177,79 +181,66 @@
       }
     },
     "regions": {
-      "description": "By setting and modifying this value, you can decide the deployment regions of the Lambdas that get created as a result of the build steps.\n\nThis value does not impact static files or edge caches, since deployments always have a CDN layer in front.\n\nThe special value all can be used to target all available regions.",
+      "description": "By setting and modifying this value, you can decide the deployment regions of the Serverless Functions that get created as a result of the build steps. By default, the closest region to the geographical location of the deployment is used, or if using a Vercel for Git Integration, SFO is used by default.\n\nThe special value `all` can be used to target all available regions.\n\nNOTE: The values in regions support targeting a region generically, by omitting the number. If `sfo` is specified, our backend will select a singular region (like `sfo1`) at deploy time.\n\nDuring development via vercel dev, the region is assigned dev1 to mimic the Vercel Platform infrastructure",
       "type": "array",
       "items": {
-        "description": "The special value all can be used to target all available regions.\n\nNOTE: The values in regions support targeting a region generically, by omitting the number. If `sfo` is specified, our backend will select a singular region (like `sfo1`) at deploy time.",
         "type": "string",
         "default": "all",
-        "oneOf": [
-          {
-            "type": "string"
-          },
-          {
-            "enum": [
-              "all",
-              "arn",
-              "bom",
-              "bru",
-              "cdg",
-              "chs",
-              "cle",
-              "dub",
-              "gru",
-              "hel",
-              "hkg",
-              "hnd",
-              "iad",
-              "icn",
-              "lax",
-              "lhr",
-              "oma",
-              "pdx",
-              "sfo",
-              "sin",
-              "syd",
-              "tpe",
-              "yul",
-              "zrh"
-            ]
-          }
+        "enum": [
+          "all",
+          "arn1",
+          "bom1",
+          "bru1",
+          "cdg1",
+          "cle1",
+          "dub1",
+          "gru1",
+          "hkg1",
+          "hnd1",
+          "iad1",
+          "icn1",
+          "lhr1",
+          "pdx1",
+          "sfo1",
+          "sin1",
+          "syd1",
+          "dev1"
         ]
       }
     },
     "public": {
-      "description": "When set to `true`, both the source view and logs view will be publicly accessible (without authentication with ZEIT).",
+      "description": "When set to true, both the source view and logs view will be publicly accessible.",
       "type": "boolean"
     },
     "trailingSlash": {
-      "description": "When `trailingSlash: false`, visiting a path that ends with a forward slash will respond with a 308 status code and redirect to the path without the trailing slash.\n\nFor example, the /about/ path will redirect to /about.",
+      "description": "When `trailingSlash: false`, visiting a path that ends with a forward slash will respond with a 308 status code and redirect to the path without the trailing slash.\n\nFor example, the /about/ path will redirect to /about.\n\nWhen trailingSlash: true, visiting a path that does not end with a forward slash will respond with a 308 status code and redirect to the path with a trailing slash.\n\nFor example, the /about path will redirect to /about/.\n\nHowever, paths with a file extension will not redirect to a trailing slash.\n\nFor example, the /about/styles.css path will not redirect, but the /about/styles path will redirect to /about/styles/.",
       "type": "boolean"
     },
     "cleanUrls": {
-      "description": "When set to `true`, all HTML files and Serverless Functions will have their extension removed. When visiting a path that ends with the extension, a 308 response will redirect the client to the extensionless path.",
+      "description": "When set to true, all HTML files and Serverless Functions will have their extension removed. When visiting a path that ends with the extension, a 308 response will redirect the client to the extensionless path.\n\nFor example, a static file named about.html will be served when visiting the /about path. Visiting /about.html will redirect to /about.\n\nSimilarly, a Serverless Function named api/user.go will be served when visiting /api/user. Visiting /api/user.go will redirect to /api/user.",
+      "default": false,
       "type": "boolean"
     },
     "github": {
       "type": "object",
       "properties": {
         "enabled": {
-          "description": "When set to `false`, Now for GitHub will not deploy the given project regardless of the GitHub app being installed.",
+          "description": "When set to false, Vercel for GitHub will not deploy the given project regardless of the GitHub app being installed.",
           "default": true,
           "type": "boolean"
         },
         "autoAlias": {
-          "description": "When set to `false`, Now for GitHub will not apply the alias upon merge.",
+          "description": "When set to false, Vercel for GitHub will not apply the alias upon merge.",
           "default": true,
           "type": "boolean"
         },
         "silent": {
-          "description": "When set to `true`, Now for GitHub will stop commenting on pull requests and commits.",
+          "description": "When set to true, Vercel for GitHub will stop commenting on pull requests and commits.",
           "default": false,
           "type": "boolean"
         },
         "autoJobCancelation": {
-          "description": "When set to false, Now for GitHub will always build pushes in sequence without cancelling a build for the most recent commit.",
+          "description": "When set to false, Vercel for GitHub will always build pushes in sequence without cancelling a build for the most recent commit.",
           "default": true,
           "type": "boolean"
         }

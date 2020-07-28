@@ -1,12 +1,14 @@
 {
   "name": "zeit-co-vscode-schemas",
-  "displayName": "zeit.co Schemas",
-  "description": "Add support for JSON Schemas from zeit.co files",
+  "displayName": "vercel.com Schemas",
+  "description": "Add support for JSON Schemas from vercel.com files",
   "version": "0.1.0",
   "keywords": [
     "zeit",
     "now",
     "now.sh",
+    "vercel.com",
+    "vercel",
     "zeit.co",
     "schemas",
     "nextjs",
@@ -31,11 +33,11 @@
   "contributes": {
     "jsonValidation": [
       {
-        "fileMatch": "now.json",
-        "url": "./schemas/now.json"
+        "fileMatch": ["now.json", "vercel.json"],
+        "url": "./schemas/vercel.json"
       },
       {
-        "fileMatch": "*.now/config.json",
+        "fileMatch": ["*.now/config.jsonn", "*.vercel/config.json"],
         "url": "./schemas/config.json"
       }
     ]
@@ -57,9 +59,9 @@
     "url": "https://github.com/ph1p/zeit-co-vscode-schemas.git"
   },
   "devDependencies": {
-    "@types/node": "^13.7.1",
-    "@types/vscode": "^1.42.0",
-    "tslint": "^6.0.0",
-    "typescript": "^3.7.5"
+    "@types/node": "^14.0.26",
+    "@types/vscode": "^1.47.0",
+    "tslint": "^6.1.2",
+    "typescript": "^3.9.7"
   }
 }
