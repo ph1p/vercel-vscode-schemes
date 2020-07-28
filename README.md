@@ -1,6 +1,6 @@
-# Vercel VSCode Schemas
+# Vercel VSCode Schemes
 
-This extension currently supports the following schemas:
+This extension currently supports the following schemes:
 
 * ~/.(vercel|now)/config.json
 * (vercel|now).json

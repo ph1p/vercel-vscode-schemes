@@ -1,7 +1,7 @@
 {
   "name": "zeit-co-vscode-schemas",
-  "displayName": "vercel.com Schemas",
-  "description": "Add support for JSON Schemas from vercel.com files",
+  "displayName": "Vercel Schemes",
+  "description": "Add support for JSON Files from vercel.com files",
   "version": "0.1.1",
   "keywords": [
     "zeit",
@@ -16,7 +16,7 @@
   ],
   "publisher": "ph1p",
   "engines": {
-    "vscode": "^1.42.0"
+    "vscode": "^1.47.0"
   },
   "categories": [
     "Other"
