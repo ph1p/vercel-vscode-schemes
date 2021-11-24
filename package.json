@@ -16,7 +16,7 @@
   ],
   "publisher": "ph1p",
   "engines": {
-    "vscode": "^1.47.0"
+    "vscode": "^1.62.0"
   },
   "categories": [
     "Other"
@@ -50,7 +50,7 @@
     ]
   },
   "activationEvents": [
-    "*"
+    "onLanguage:json"
   ],
   "icon": "images/icon.png",
   "galleryBanner": {
