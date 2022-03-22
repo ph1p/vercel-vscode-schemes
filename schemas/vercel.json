@@ -185,15 +185,14 @@
       "type": "array",
       "items": {
         "type": "string",
-        "default": "all",
+        "default": "iad1",
         "enum": [
-          "all",
           "arn1",
           "bom1",
-          "bru1",
           "cdg1",
           "cle1",
           "dub1",
+          "fra1",
           "gru1",
           "hkg1",
           "hnd1",
