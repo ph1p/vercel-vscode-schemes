@@ -1,0 +1,13 @@
+{
+  "scopeName": "source.ignore",
+  "patterns": [
+    {
+      "name": "comment.line.number-sign.ignore",
+      "match": "^#.*$"
+    },
+    {
+      "name": "keyword.control.ignore",
+      "match": "^!.+$"
+    }
+  ]
+}
