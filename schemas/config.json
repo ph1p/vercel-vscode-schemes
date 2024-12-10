@@ -9,10 +9,6 @@
     "currentTeam": {
       "type": "string",
       "description": "Valid values: A team ID.\n\nThis option tells Vercel CLI which context is currently active. If this property exists and contains a team ID, that team is used as the scope for deployments, otherwise if this property does not exist, the user's personal account is used."
-    },
-    "api": {
-      "type": "string",
-      "description": "Valid values: An API Origin URL.\n\nThis option selects which API Origin Vercel CLI should use when performing an action requiring the API."
     }
   }
 }

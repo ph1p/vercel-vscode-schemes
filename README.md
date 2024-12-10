@@ -4,7 +4,7 @@ This extension currently supports the following schemes:
 
 * ~/.(vercel|now)/config.json
 * (vercel|now).json
-
+* turbo.json
 
 
 ### Contribution
