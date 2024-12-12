@@ -48,7 +48,7 @@
     "grammars": [
       {
         "language": "vercelignore",
-        "scopeName": "source.ignore",
+        "scopeName": "source.vercelignore",
         "path": "./syntaxes/vercelignore.json"
       }
     ],

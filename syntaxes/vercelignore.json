@@ -1,13 +1,29 @@
 {
-  "scopeName": "source.ignore",
+  "scopeName": "source.vercelignore",
   "patterns": [
     {
-      "name": "comment.line.number-sign.ignore",
-      "match": "^#.*$"
+      "match": "^#.*",
+      "name": "comment.line.number-sign.vercelignore"
     },
     {
-      "name": "keyword.control.ignore",
-      "match": "^!.+$"
+      "match": "^!",
+      "name": "keyword.control.negation.vercelignore"
+    },
+    {
+      "match": "\\*",
+      "name": "constant.language.wildcard.vercelignore"
+    },
+    {
+      "match": "\\/.*",
+      "name": "constant.language.directory.vercelignore"
+    },
+    {
+      "match": "(^|\\s)\\.[a-zA-Z0-9_-]+",
+      "name": "constant.language.hidden-file.vercelignore"
+    },
+    {
+      "match": "[^\\s#][^\\s]*",
+      "name": "constant.language.path.vercelignore"
     }
   ]
 }
