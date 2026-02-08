@@ -1,36 +1,50 @@
 {
   "name": "zeit-co-vscode-schemas",
   "displayName": "Vercel Schemes",
-  "description": "Add support for JSON Files from vercel.com files",
   "version": "1.0.1",
-  "keywords": [
-    "zeit",
-    "now",
-    "now.sh",
-    "vercel.com",
-    "vercel",
-    "zeit.co",
-    "schemas",
-    "nextjs",
-    "config",
-    "turborepo"
-  ],
-  "publisher": "ph1p",
-  "engines": {
-    "vscode": "^1.95.0"
-  },
+  "description": "Add support for JSON Files from vercel.com files",
   "categories": [
     "Other"
   ],
+  "keywords": [
+    "config",
+    "nextjs",
+    "now",
+    "now.sh",
+    "schemas",
+    "turborepo",
+    "vercel",
+    "vercel.com",
+    "zeit",
+    "zeit.co"
+  ],
+  "bugs": {
+    "url": "https://github.com/ph1p/vercel-vscode-schemes/issues"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ph1p/vercel-vscode-schemes.git"
+  },
+  "publisher": "ph1p",
   "main": "./out/index.js",
   "scripts": {
-    "vscode:prepublish": "npm run compile",
+    "vscode:prepublish": "pnpm compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "pretest": "npm run compile && npm run lint",
+    "pretest": "pnpm compile && pnpm lint",
     "lint": "eslint src --ext ts",
-    "packages": "npx @vscode/vsce package",
-    "publish": "npx @vscode/vsce publish"
+    "packages": "pnpx @vscode/vsce package",
+    "publish": "pnpx @vscode/vsce publish"
+  },
+  "devDependencies": {
+    "@types/node": "25.x",
+    "@types/vscode": "^1.109.0",
+    "@typescript-eslint/eslint-plugin": "^8.54.0",
+    "@typescript-eslint/parser": "^8.54.0",
+    "eslint": "^10.0.0",
+    "glob": "^13.0.1",
+    "typescript": "^5.9.3"
   },
   "contributes": {
     "languages": [
@@ -58,7 +72,7 @@
           "now.json",
           "vercel.json"
         ],
-        "url": "https://openapi.vercel.sh/vercel.json"
+        "url": "./schemas/vercel.json"
       },
       {
         "fileMatch": [
@@ -71,7 +85,7 @@
         "fileMatch": [
           "turbo.json"
         ],
-        "url": "https://turbo.build/schema.json"
+        "url": "./schemas/turbo.json"
       }
     ]
   },
@@ -83,21 +97,7 @@
     "color": "#ffffff",
     "theme": "light"
   },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ph1p/vercel-vscode-schemes/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ph1p/vercel-vscode-schemes.git"
-  },
-  "devDependencies": {
-    "@types/vscode": "^1.95.0",
-    "@types/node": "22.x",
-    "@typescript-eslint/eslint-plugin": "^8.18.0",
-    "@typescript-eslint/parser": "^8.18.0",
-    "eslint": "^9.16.0",
-    "glob": "^11.0.0",
-    "typescript": "^5.7.2"
+  "engines": {
+    "vscode": "^1.109.0"
   }
 }
